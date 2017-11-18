@@ -1,3 +1,5 @@
-console.log(`Hello, Kottans`);
+const server = require('./server');
 
-module.exports = (a, b) => a + b;
+const port = process.env.PORT || 3000;
+
+server.listen(port);
