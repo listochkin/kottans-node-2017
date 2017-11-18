@@ -1,3 +1,8 @@
 {
-  "main": "kittens-app.js"
+  "main": "kittens-app.js",
+  "version": "1.0.0",
+  "name": "kittens",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
