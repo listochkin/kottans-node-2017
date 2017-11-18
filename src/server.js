@@ -2,4 +2,6 @@ const app = require('./app');
 
 const http = require('http');
 
-module.exports = http.createServer(app);
+const server = http.createServer(app);
+
+module.exports = server;

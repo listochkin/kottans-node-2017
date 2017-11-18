@@ -8,6 +8,7 @@ const KITTENS = [
   { id: 13, name: 'Barsik', color: 'cute gray' }
 ];
 
+app.KITTENS = KITTENS;
 app.get('/', (req, res) => {
   res.json(KITTENS);
 });
