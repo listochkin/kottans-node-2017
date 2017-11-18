@@ -16,8 +16,8 @@ describe('Tests', () => {
   });
 
   it('should pass', done => {
-    request.get('http://localhost:5865/', (err, res, body) => {
-      expect(body).toEqual('Hello!');
+    request.get('http://localhost:5865/', { json: true }, (err, res, body) => {
+      expect(body.map(k => k.id)).toEqual([11, 12, 13]);
       done();
     });
   });

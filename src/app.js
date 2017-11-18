@@ -1,1 +1,9 @@
-module.exports = (req, res) => res.end('Hello!');
+const express = require('express');
+
+const app = express();
+
+const kittens = require('./kittens');
+
+app.use(kittens);
+
+module.exports = app;
