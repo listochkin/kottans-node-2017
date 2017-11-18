@@ -15,10 +15,14 @@ describe('Tests', () => {
     }
   });
 
-  it('should pass', done => {
-    request.get('http://localhost:5865/', { json: true }, (err, res, body) => {
-      expect(body.map(k => k.id)).toEqual([11, 12, 13]);
-      done();
-    });
+  it('should list kittens', done => {
+    request.get(
+      'http://localhost:5865/kittens',
+      { json: true },
+      (err, res, body) => {
+        expect(body.map(k => k.id)).toEqual([11, 12, 13]);
+        done();
+      }
+    );
   });
 });
