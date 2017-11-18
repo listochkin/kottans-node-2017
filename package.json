@@ -4,7 +4,39 @@
   "description": "Node / npm worksop for Kottans.org",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest"
+    "precommit": "lint-staged",
+    "start": "node .",
+    "lint": "eslint src",
+    "fix": "eslint --fix src",
+    "format": "prettier --single-quote --write 'src/**/*.js'",
+    "test": "jest",
+    "cover": "jest --coverage; command -v open && open coverage/lcov-report/index.html ; exit 0",
+    "watch": "jest --watch"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "fix",
+      "format",
+      "test",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "plugins": [
+      "jest"
+    ],
+    "extends": [
+      "airbnb-base",
+      "prettier",
+      "plugin:jest/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2017
+    },
+    "env": {
+      "node": true,
+      "jest/globals": true
+    }
   },
   "repository": {
     "type": "git",
@@ -20,5 +52,17 @@
   "bugs": {
     "url": "https://github.com/listochkin/kottans-node-2017/issues"
   },
-  "homepage": "https://github.com/listochkin/kottans-node-2017#readme"
+  "homepage": "https://github.com/listochkin/kottans-node-2017#readme",
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.7.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.3.2",
+    "eslint-plugin-prettier": "^2.3.1",
+    "husky": "^0.14.3",
+    "jest-cli": "^21.2.1",
+    "lint-staged": "^5.0.0",
+    "prettier": "^1.8.2"
+  }
 }
