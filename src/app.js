@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 
-const kittens = require('./kittens');
+const kittens = require('kittens');
 
 app.use(kittens);
 
